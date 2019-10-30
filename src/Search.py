@@ -17,6 +17,7 @@ class Search:
         if self.maze.create_maze_from_file():  # Verifica se conseguiu ler o arquivo e criar a matriz do labirinto
             self.player = Player(self.maze.get_start())  # Posiciona o jogador no inicio do labirinto
             self.root_node = Node(self.player.get_position(), None, 0, 0)  # Cria o no raiz da árvore
+            self.calculate_cost(self.root_node)
             self.opened_list.append(self.root_node)  # Adiciona o nó raiz na lista de abertos
             success = False
             while len(self.opened_list) != 0:

@@ -9,6 +9,7 @@ class OrderedSearch(Search):
         super().__init__(file_path)
 
     def calculate_cost(self, node):
-        father = node.get_father()
-        node.set_real_cost(father.get_real_cost() + 1)
-        node.set_total_cost(father.get_real_cost() + 1)
+        if node.get_father() is not None:
+            father = node.get_father()
+            node.set_real_cost(father.get_real_cost() + 1)
+            node.set_total_cost(father.get_real_cost() + 1)
