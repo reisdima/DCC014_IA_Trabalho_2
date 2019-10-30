@@ -13,17 +13,19 @@ class Maze:
         self.height = 0
         self.file_path = file_path
 
-    def create_maze(self):
+    def create_maze_from_file(self):
         file = open(self.file_path, "r")
         if file.mode == 'r':
             h = 0
             for i in file:
                 i = i.split(',')
                 i.pop(-1)
-                if 'O' in i:                                    # Indica o começo do labirinto
-                    self.start = Node(0, [h, i.index('O')])
-                elif 'X' in i:                                  # Indica o final do labirinto
-                    self.ending = Node(1, [h, i.index('X')])
+                if 'O' in i:                                    # Indica o  X, Y do começo do labirinto
+                    # self.start = Node(0, [h, i.index('O'), None])
+                    self.start = [h, i.index('O')]
+                elif 'X' in i:                                  # Indica o X, Y do final do labirinto
+                    # self.ending = Node(1, [h, i.index('X')])
+                    self.ending = [h, i.index('X')]
                 self.maze.append(i)
                 h += 1
             if self.start is None or self.ending is None:

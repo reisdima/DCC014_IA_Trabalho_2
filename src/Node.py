@@ -1,9 +1,11 @@
 class Node:
 
-    def __init__(self, id, position):
+    def __init__(self, id, position, father, custo):
         self.position = position
         self.id = id
         self.edges = []
+        self.father = father
+        self.custo = custo
 
     def get_id(self):
         return self.id
