@@ -48,3 +48,6 @@ class Maze:
 
     def get_info_position(self, position):
         return self.maze[position[0]][position[1]]
+
+    def get_maze(self):
+        return self.maze

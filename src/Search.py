@@ -11,7 +11,7 @@ class Search:
         self.closed_list = []
         self.opened_list = []
         self.root_node = None
-
+        self.success_way = []
 
     def start_search(self):
         if self.maze.create_maze_from_file():  # Verifica se conseguiu ler o arquivo e criar a matriz do labirinto
@@ -31,6 +31,7 @@ class Search:
                     self.create_success_way(current_node)
                     print("\n A arvore gerada eh: \n")
                     self.pprint_tree(self.root_node, "", True)
+                    self.maze_solution()
                     break
             if not success:
                 print('Não encontrou solução')
@@ -82,15 +83,15 @@ class Search:
 
     def create_success_way(self, node):
         current_node = node
-        success_way = []
+        self.success_way = []
         i = 0
         while current_node is not None:
-            success_way.append(current_node.get_position())
+            self.success_way.append(current_node.get_position())
             current_node = current_node.get_father()
             i += 1
-        success_way.reverse()
-        print('Caminho do sucesso: {}'.format(success_way))
-        print("O nivel da solucao eh: {}".format(len(success_way) - 1))
+        self.success_way.reverse()
+        print('Caminho do sucesso: {}'.format(self.success_way))
+        print("O nivel da solucao eh: {}".format(len(self.success_way) - 1))
 
     # Funcoes para Printar Informacoes
     def pprint_tree(self, node, _prefix, _last):
@@ -120,3 +121,12 @@ class Search:
         print("Arvore Atual")
         self.pprint_tree(self.root_node, "", True)
         print("\n\n")
+
+    def maze_solution(self):
+        maze = self.maze.get_maze()
+        for i in self.success_way:
+            maze[i[0]][i[1]] = '*'
+        for i in maze:
+            for j in i:
+                print(j, end=' ')
+            print()
