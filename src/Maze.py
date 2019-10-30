@@ -21,7 +21,7 @@ class Maze:
                 i = i.split(',')
                 i.pop(-1)
                 if 'O' in i:                                    # Indica o  X, Y do começo do labirinto
-                    # self.start = Node(0, [h, i.index('O'), None])
+                    # self.start = Node([h, i.index('O'), None])
                     self.start = [h, i.index('O')]
                 elif 'X' in i:                                  # Indica o X, Y do final do labirinto
                     # self.ending = Node(1, [h, i.index('X')])

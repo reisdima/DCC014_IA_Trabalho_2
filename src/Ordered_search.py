@@ -1,7 +1,7 @@
 from src.Player import Player
 from src.Node import Node
 from src.Search import Search
-
+global ID
 
 class OrderedSearch(Search):
 

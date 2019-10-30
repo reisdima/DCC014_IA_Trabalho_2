@@ -1,12 +1,15 @@
 class Node:
+    counter = 0
 
-    def __init__(self, id, position, father, real_cost, heuristic_cost):
+    def __init__(self, position, father, real_cost, heuristic_cost):
         self.position = position
-        self.id = id
+        self.id = Node.counter
+        Node.counter += 1
         self.children = []
         self.father = father
         self.real_cost = real_cost
         self.heuristic_cost = heuristic_cost
+        self.total_cost = real_cost + heuristic_cost
 
     def get_id(self):
         return self.id
@@ -40,3 +43,15 @@ class Node:
 
     def set_heuristic_cost(self, cost):
         self.heuristic_cost = cost
+
+    def get_total_cost(self):
+        return self.total_cost
+
+    def set_total_cost(self, cost):
+        self.total_cost = cost
+
+    def get_information(self):
+        return self.position
+
+    def show_information(self):
+        print("{}  {}".format(self.id, self.total_cost))
