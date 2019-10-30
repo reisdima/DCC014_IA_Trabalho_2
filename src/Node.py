@@ -34,3 +34,15 @@ class Node:
 
     def add_child(self, node):
         self.children.append(node)
+
+    def get_real_cost(self):
+        return self.real_cost
+
+    def get_heuristic_cost(self):
+        return self.heuristic_cost
+
+    def set_real_cost(self, cost):
+        self.real_cost = cost
+
+    def set_heuristic_cost(self, cost):
+        self.heuristic_cost = cost
