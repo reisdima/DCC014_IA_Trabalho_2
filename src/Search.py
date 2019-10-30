@@ -14,6 +14,10 @@ class Search:
 
     def is_success(self, node):  # Função que verifica se o nó é o final do labirinto
         print('função que verifica se o nó passado como param é o nó final')
+        position = node.get_position()
+        if position == self.maze.get_ending():
+            return True
+        return False
 
     def explore_node(self, node):   #Função que explora o nó e adiciona na lista de abertos
         print('função para explorar e adicionar possiveis caminhos a lista de abertos')
