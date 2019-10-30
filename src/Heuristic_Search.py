@@ -17,9 +17,6 @@ class HeuristicSearch(Search):
         node.set_heuristic_cost(heuristic_cost)
         node.set_total_cost(heuristic_cost)
 
-    def add_to_opened_list(self, node):
-        self.opened_list.append(node)
-
     def calculate_heuristic(self, node):
         point_node = node.get_position()
         point_end_node = self.maze.get_ending()

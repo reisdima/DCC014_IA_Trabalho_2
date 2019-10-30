@@ -78,10 +78,6 @@ class Search:
     def calculate_cost(self, node):
         pass
 
-    @abstractmethod
-    def add_to_opened_list(self, node):
-        pass
-
     def create_success_way(self, node):
         current_node = node
         self.success_way = []
