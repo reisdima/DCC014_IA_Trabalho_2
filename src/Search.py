@@ -104,13 +104,13 @@ class Search:
     def print_opened_list(self):
         print("Lista de Abertos: ")
         for i in self.opened_list:
-            print(i.get_position(), end=" ")
+            print("{}({})".format(i.get_position(), i.get_total_cost()), end="  ")
         print("\n")
 
     def print_closed_list(self):
         print("Lista de Fechados: ")
         for j in self.closed_list:
-            print(j.get_position(), end=" ")
+            print("{}({})".format(j.get_position(), j.get_total_cost()), end="  ")
         print("\n")
 
     def print_fluxograma(self):
