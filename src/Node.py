@@ -20,12 +20,6 @@ class Node:
     def get_position(self):
         return self.position
 
-    def add_edge(self, edge):
-        self.edges.append(edge)
-
-    def get_edges(self):
-        return self.edges
-
     def get_father(self):
         return self.father
 

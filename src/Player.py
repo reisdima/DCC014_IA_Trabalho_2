@@ -21,7 +21,7 @@ class Player:
         return new_position
 
     def add(self, movement):
-        for i in range(movement):
+        for i in range(len(movement)):
             movement[i] = movement[i] + self.position[i]
         return movement
 

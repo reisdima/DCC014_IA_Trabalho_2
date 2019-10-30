@@ -47,4 +47,4 @@ class Maze:
         return self.height
 
     def get_info_position(self, position):
-        return self.maze[position[0], position[1]]
+        return self.maze[position[0]][position[1]]
