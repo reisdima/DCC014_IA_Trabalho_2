@@ -1,11 +1,12 @@
 class Node:
 
-    def __init__(self, id, position, father, custo):
+    def __init__(self, id, position, father, real_cost, heuristic_cost):
         self.position = position
         self.id = id
-        self.edges = []
+        self.children = []
         self.father = father
-        self.custo = custo
+        self.real_cost = real_cost
+        self.heuristic_cost = heuristic_cost
 
     def get_id(self):
         return self.id
@@ -30,3 +31,6 @@ class Node:
 
     def sef_father(self, node):
         self.father = node
+
+    def add_child(self, node):
+        self.children.append(node)
