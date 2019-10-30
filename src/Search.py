@@ -30,8 +30,10 @@ class Search:
                     success = True
                     print("------------- Final ---------------")
                     self.create_success_way(current_node)
-                    print("\n A arvore gerada eh: \n")
+                    print("\n O custo real eh: {}".format(current_node.get_real_cost()))
+                    print("\n A arvore gerada eh: ")
                     self.pprint_tree(self.root_node, "", True)
+                    print("\n O caminho no labirinto sera: \n")
                     self.maze_solution()
                     break
             if not success:
@@ -87,8 +89,8 @@ class Search:
             current_node = current_node.get_father()
             i += 1
         self.success_way.reverse()
-        print('Caminho do sucesso: {}'.format(self.success_way))
-        print("O nivel da solucao eh: {}".format(len(self.success_way) - 1))
+        print('\n Caminho do sucesso: {}'.format(self.success_way))
+        print("\n O nivel da solucao eh: {}".format(len(self.success_way) - 1))
 
     # Funcoes para Printar Informacoes
     def pprint_tree(self, node, _prefix, _last):

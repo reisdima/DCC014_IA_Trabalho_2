@@ -13,7 +13,6 @@ class HeuristicSearch(Search):
             father = node.get_father()
             node.set_real_cost(father.get_real_cost() + 1)
         heuristic_cost = self.calculate_heuristic(node)
-        print("A heuristia eh: {}".format(heuristic_cost))
         node.set_heuristic_cost(heuristic_cost)
         node.set_total_cost(heuristic_cost)
 
