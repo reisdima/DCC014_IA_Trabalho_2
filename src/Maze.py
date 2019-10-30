@@ -39,3 +39,12 @@ class Maze:
 
     def get_ending(self):
         return self.ending
+
+    def get_width(self):
+        return self.width
+
+    def get_height(self):
+        return self.height
+
+    def get_info_position(self, position):
+        return self.maze[position[0], position[1]]

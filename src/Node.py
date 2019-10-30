@@ -24,3 +24,9 @@ class Node:
 
     def get_edges(self):
         return self.edges
+
+    def get_father(self):
+        return self.father
+
+    def sef_father(self, node):
+        self.father = node

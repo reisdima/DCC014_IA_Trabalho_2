@@ -18,10 +18,9 @@ class OrderedSearch:
             self.root_node = Node(0, self.player.get_position(), None, 0)  # Cria o no raiz da árvore
             self.opened_list.append(self.root_node)  # Adiciona o nó raiz na lista de abertos
             success = False
-            while len(self.opened_list) != 0:   # Continua até que o nó a ser explorado seja sucesso
-                                                 # ou que a lista de abertos esteja vazia
-
+            while len(self.opened_list) != 0:
                 current_node = self.opened_list.pop(0)  # Pega o primeiro nó da lista de abertos
+                self.player.set_position(current_node.get_position())
                 if not self.is_sucess(current_node):  # Se não for sucesso, explora esse nó
                     self.explore_node(current_node)
                 else:
@@ -36,3 +35,26 @@ class OrderedSearch:
 
     def explore_node(self, node):   #Função que explora o nó e adiciona na lista de abertos
         print('função para explorar e adicionar possiveis caminhos a lista de abertos')
+        moves = self.player.get_moves()
+        for m in moves:
+            new_position = m()
+            if self.can_move_to_position(new_position) and not self.is_in_way(new_position):
+                new_node = Node(0, new_position, node, self.current_cost)
+                self.opened_list.append(new_node)
+
+    def is_on_way(self, position, current_node):
+        print('Função que verifica se o nó está no caminho')
+        aux_node = current_node
+        while aux_node is not None:
+            if aux_node.get_position() == position:
+                return True
+            aux_node = aux_node.get_father()
+        return False
+
+    def can_move_to_position(self, position):
+        width = self.maze.get_width()
+        height = self.maze.get_height()
+        if(0 <= position[0] < height) and (0 <= position[1] < width):
+            if self.maze.get_info_position(position) != '#':
+                return True
+
