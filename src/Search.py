@@ -130,3 +130,13 @@ class Search:
             for j in i:
                 print(j, end=' ')
             print()
+
+    def add_to_opened_list(self, node):
+        got_to_end = True
+        for i in range(len(self.opened_list)):
+            if node.get_total_cost() < self.opened_list[i].get_total_cost():
+                got_to_end = False
+                self.opened_list.insert(i, node)
+                break
+        if got_to_end:
+            self.opened_list.append(node)

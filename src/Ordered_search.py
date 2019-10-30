@@ -12,6 +12,3 @@ class OrderedSearch(Search):
         father = node.get_father()
         node.set_real_cost(father.get_real_cost() + 1)
         node.set_total_cost(father.get_real_cost() + 1)
-
-    def add_to_opened_list(self, node):
-        self.opened_list.append(node)
