@@ -5,8 +5,8 @@ from src.Search import Search
 
 class OrderedSearch(Search):
 
-    def __init__(self, file_path):
-        super().__init__(file_path)
+    def __init__(self, file_path, maze_number):
+        super().__init__(file_path, maze_number)
 
     def calculate_cost(self, node):
         if node.get_father() is not None:

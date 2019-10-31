@@ -5,16 +5,17 @@ from src.Player import  Player
 
 
 class Search:
-    def __init__(self, file_path):
-        self.maze = Maze(file_path)
+    def __init__(self, file_path, maze_number):
+        self.maze = Maze(file_path, maze_number)
         self.player = None
         self.closed_list = []
         self.opened_list = []
         self.root_node = None
         self.success_way = []
+        self.maze_number = maze_number
 
     def start_search(self):
-        if self.maze.create_maze_from_file():  # Verifica se conseguiu ler o arquivo e criar a matriz do labirinto
+        if self.maze.create_maze():  # Verifica se conseguiu ler o arquivo e criar a matriz do labirinto
             self.player = Player(self.maze.get_start())  # Posiciona o jogador no inicio do labirinto
             self.root_node = Node(self.player.get_position(), None, 0, 0)  # Cria o no raiz da árvore
             self.calculate_cost(self.root_node)
